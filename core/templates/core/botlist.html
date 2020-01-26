@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container">
+  {% for bot in bots %}
+    <div class="card">
+      {{ bot.name }}
+    </div>
+  {% endfor %}
+</div>
+{% endblock content %}
