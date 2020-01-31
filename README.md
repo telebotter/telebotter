@@ -31,3 +31,10 @@ python manage.py migrate
 
 ### Direkter Zugriff auf die DB
 Wenn noetig sag bescheid, ansonsten sollte erstmal Djangoadmin ausreichen.
+
+
+### Webserver neustarten
+Ueber ssh auf dem Server.
+```
+# service apache2 restart
+```
