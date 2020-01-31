@@ -26,7 +26,7 @@ urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('botlist/', views.botlist),
-    url(r'^', include('django_telegrambot.urls')),
+    #url(r'^', include('django_telegrambot.urls')),
     #url(r'^parser/', include('mensaparser.urls')),
 ]
 
