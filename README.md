@@ -15,6 +15,45 @@ Siehe [Installation am Beispiel Projekt47](https://github.com/telebotter/projekt
 
 ## Neuen Bot erstellen
 
+### 1. App aus Template erstellen
+In der aktivierten Umgebung (`conda activate telebotter`) im Projektverzeichnis (`telebotter`) kann eine neuer bot nach einem Template erstellt werden:
+```
+python manage.py startapp --template=templates/telegrammbot <app_name>
+```
+Dies erstellt einen Ordner mit dem Namen der App. Darin befindet sich der eigentliche bot (`telegrambot.py`) sowie eine Vorlage fuer Datenbanktabellen (`models.py`) und Webseiten (`views.py`). Und ein paar Ordner die ggf. spaeter oder von Django benoetigt werden.
+
+### 2. Bearbeiten der Metadaten
+Es ist nicht nur ueblich, sondern fuer die Botverwaltung erforderlich, dass in der `<app_name>/__init__.py` entsprechende Metadaten angegeben werden. Die Datei ist bereits mit Kommentaren und Beispielen ausgestattet. Erforderlich sind zumindest der Botname und eine Kurzbeschreibung.
+
+### 3. Bot im Projekt eintragen
+Damit der Bot serviert wird, muss sein token und der <app_name> in die `telebotter/settings.py` eingetragen werden. Der name der app (=name des ordners/moduls) wird der Liste von `INSTALLED_APPS` hinzugefuegt. Wo der Token gesetzt und der Bot gestartet wird, haengt davon ab, ob er als script (local) oder ueber den Webserver gestartet werden soll.
+
+__a) Webserver__ Der Token kommt in das Dictionary `DJANGO_TELEGRAMBOT` sollte selbsterklaerend sein anhand der anderen Beispiele. Der Bot kann jetzt durch ausfuehren der bot datei gestartet werden:
+```bash
+python telegrambot.py
+```
+
+__b) Lokal__ Der Token kommt in das Dictionary `DEV_TOKENS` oder als eigene Variable und muss entsprechend in der `telegrambot.py` gelesen werden. Wenn der Bot selbst funktioniert, kann er durch ein Neustart des Webservers
+```bash
+sudo service apache2 reload  # restart oder force-reload bei Fehler
+```
+aktiviert werden.
+
+__Optional__ koennen noch spezielle Logfiles festgelegt werden, ansonsten werden nur fehler in `telegram_error` und aufwaerts geloggt. Sollte vorallem fuer die laufenden Bots wichtig sein, weniger fuer die in der Entwicklung. (Siehe Kapitel Logging)
+
+### 4. Optional: Repository erstellen
+Wenn der Botcode Open Source sein soll, ein neues Repository (`telebotter/<app_name>`) erstellen ohne irgendetwas hinzuzufuegen. Im Template befindet sich bereits eine `.gitignore`, sodass theoretisch alles andere mit `*` hinzugefuegt werden kann. Jedoch sollte diese vorher einmal geprueft, oder nur ausgewaehlte Dateien commited werden, damit keine Tokens oder Passwoerter veroeffentlicht werden. __Vom App-Ordner (`telebotter/<app_name>`) aus__ kann der neue Bot ins Repository geschoben werden mit:
+
+```bash
+git init
+git add *
+git commit -m 'new bot'
+git remote add origin git@github.com:telebotter/<app_name>.git
+git push
+```
+
+## Logging
+
 ## Maintain
 
 ### Servererror 500
