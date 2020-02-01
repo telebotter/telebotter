@@ -15,6 +15,7 @@ Bots koennen auf der Website gelisted werden und/oder eine eigene Weboberflaeche
 
 ## Lokale Installation
 Siehe [Installation am Beispiel Projekt47](https://github.com/telebotter/projekt47)
+TODO: Hierher kopieren und unabhaengig vom bot machen. django plugin ist upgedated, aber wenn PR nicht angenommen wird, in `requirements.txt` auf `git+https://github.com/telebotter/django-telegrambot/tree/dev` aendern.
 
 ## Neuen Bot erstellen
 
