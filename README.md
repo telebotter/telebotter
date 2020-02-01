@@ -1,5 +1,7 @@
 > This repository contains the telebotter project folder and is only for development purpose. The bot related stuff is in the corresponding bot repository.
 
+![language](https://img.shields.io/github/languages/top/telebotter/telebotter)
+![closed issues](https://img.shields.io/github/issues-closed/telebotter/telebotter)
 
 ## Ueberblick
 Dieses Repo ist der Rootordner des Telebotterprojekts. 
