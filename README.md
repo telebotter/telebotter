@@ -49,7 +49,7 @@ git init
 git add *
 git commit -m 'new bot'
 git remote add origin git@github.com:telebotter/<app_name>.git
-git push
+git push -u origin master
 ```
 
 ## Logging
