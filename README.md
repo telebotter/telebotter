@@ -37,7 +37,7 @@ __b) Lokal__ Der Token kommt in das Dictionary `DEV_TOKENS` oder als eigene Vari
 ```bash
 sudo service apache2 reload  # restart oder force-reload bei Fehler
 ```
-aktiviert werden.
+aktiviert werden. Wenn wir auf nummer sichergehen wollen, waere es gut den app ordner noch der `.gitignore` dieses Repositories hinzuzufuegen, damit man nicht versehentlich, das eine Repo dem anderen hinzufuegt.. zumindest, bis wir eine bessere Loesung haben #5.
 
 __Optional__ koennen noch spezielle Logfiles festgelegt werden, ansonsten werden nur fehler in `telegram_error` und aufwaerts geloggt. Sollte vorallem fuer die laufenden Bots wichtig sein, weniger fuer die in der Entwicklung. (Siehe Kapitel Logging)
 
@@ -53,7 +53,7 @@ git push
 ```
 
 ## Logging
-
+Das Logging ist teilweise unterschiedlich geloest und laeuft mit aktuellen Einstellungen und vielen Bots nicht besonders gut. Da muss man sich nochmal ein ganzheitliches Konzept ueberlegen und umsetzen #1.
 ## Maintain
 
 ### Servererror 500
