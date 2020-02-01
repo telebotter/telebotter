@@ -2,6 +2,7 @@
 
 ![language](https://img.shields.io/github/languages/top/telebotter/telebotter)
 ![closed issues](https://img.shields.io/github/issues-closed/telebotter/telebotter)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Ftelebotter.sarbot.de)
 
 ## Ueberblick
 Dieses Repo ist der Rootordner des Telebotterprojekts. 
