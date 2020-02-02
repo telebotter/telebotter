@@ -4,6 +4,15 @@
 ![closed issues](https://img.shields.io/github/issues-closed/telebotter/telebotter)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Ftelebotter.sarbot.de)
 
+```
+ _____    _      _           _   _         
+|_   _|__| | ___| |__   ___ | |_| |_ ___ _ __ 
+  | |/ _ \ |/ _ \ '_ \ / _ \| __| __/ _ \ '__|
+  | |  __/ |  __/ |_) | (_) | |_| ||  __/ |   
+  |_|\___|_|\___|_.__/ \___/ \__|\__\___|_| 
+```  
+
+
 ## Ueberblick
 Dieses Repo ist der Rootordner des Telebotterprojekts. 
 Es enthaelt den Code fuer die Website und Botuebergreifende Einstellungen. 
