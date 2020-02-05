@@ -15,7 +15,7 @@ conda activate telebotter
 
 ### Ohne Conda
 
-Wenn die env direkt aus python heraus erstellt wird, sollte eine aktuelle python verison installiert sein. Wie die venv aktiviert wird, haengt von der verwendeten shell ab.
+Wenn die env direkt aus python heraus erstellt wird, sollte eine aktuelle python verison installiert sein (min 3.5 best 3.8). Wie die venv aktiviert wird, haengt von der verwendeten shell ab.
 
 ```bash
 python3.8 -m venv /path/to/envs/telebotter
