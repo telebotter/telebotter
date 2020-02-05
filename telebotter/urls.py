@@ -17,22 +17,13 @@ from django.conf.urls import url, include
 from django.urls import path
 from django.contrib import admin
 from core import views
-import logging
 #from kicken import urls as kicken_urls
-
-logger = logging.getLogger()
 
 urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('botlist/', views.botlist),
-    #url(r'^', include('django_telegrambot.urls')),
+    url(r'^', include('django_telegrambot.urls')),
     #url(r'^parser/', include('mensaparser.urls')),
+    #path('kicken/', include('kicken.urls')),
 ]
-
-
-try:
-    urlpatterns.append(
-        path('kicken/', include('kicken.urls')))
-except ModuleNotFoundError as e:
-    logger.exception('Kicken urls nicht geladen')
