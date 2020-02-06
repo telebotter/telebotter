@@ -23,7 +23,7 @@ class Bot(models.Model):
     url = models.URLField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 class TelebotUser(models.Model):
     user_id = models.BigIntegerField(primary_key=True, unique=True)
@@ -33,4 +33,4 @@ class TelebotUser(models.Model):
     joined = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.first_name
+        return str(self.first_name)
