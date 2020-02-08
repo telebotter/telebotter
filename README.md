@@ -71,7 +71,7 @@ Alle Logfiles werden taeglich (0uhr) archiviert und 7 Tage aufbewahrt. In den Da
 
 Sollte der Fehler schon vor der Konfiguration der logger auftreten, oder das gesamte Projekt crashen, findet sich vermutlich eine Fehlermeldung vom webserver in der `error_log` im selben Verzeichnis.
 
-## Maintain
+## Troubleshooting
 
 ### Servererror 500
 Bei einem Servererror sollte wenigstens eine Fehlermeldung im web_error.log auftauchen. Vermutlich auch schon eine im django_error.log. Wenn kein Zugriff auf die files moeglich ist, oder keine hilfreichen Fehler gefunden werden, kann in den settings.py debug aktiviert werden. Dies sollte allerdings nur in einer Testumgebung geschehen und ist keine Dauerloesung, da Django bei Fehlern Tracebacks und Variablenwerte als Webansicht ausgibt.
@@ -84,6 +84,10 @@ telegram_error.log
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+### RuntimeError("populate() isn't reentrant")
+
+Details in Issue #6
 
 ### Direkter Zugriff auf die DB
 Wenn noetig sag bescheid, ansonsten sollte erstmal Djangoadmin ausreichen.
