@@ -35,6 +35,7 @@ python manage.py startapp --template=templates/telegrammbot <app_name>
 Dies erstellt einen Ordner mit dem Namen der App. Darin befindet sich der eigentliche bot (`telegrambot.py`) sowie eine Vorlage fuer Datenbanktabellen (`models.py`) und Webseiten (`views.py`). Und ein paar Ordner die ggf. spaeter oder von Django benoetigt werden.
 
 ### 2. Bearbeiten der Metadaten
+> In Zukunft wird der wesentliche Teil dieser Daten in die AppSettings `apps.py` verschoben, sodass die `__init__.py` nichtmehr angepasst werden muss.
 Es ist nicht nur ueblich, sondern fuer die Botverwaltung erforderlich, dass in der `<app_name>/__init__.py` entsprechende Metadaten angegeben werden. Die Datei ist bereits mit Kommentaren und Beispielen ausgestattet. Erforderlich sind zumindest der Botname und eine Kurzbeschreibung.
 
 ### 3. Bot im Projekt eintragen
