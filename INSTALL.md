@@ -9,6 +9,9 @@ git clone git@github.com:telebotter/telebotter.git
 ## Python Umgebung
 
 ### Mit Conda
+> Unter Windows geht das auch mit der GUI (Anaconda Navigator) siehe screenshots. Oeffnet man darueber die Konsole, ist diese direkt gesourced und git sollte auch verfuegbar sein. Siehe Screenshot:
+
+!(Conda Navigator)[docs/02_open_term.png]
 
 ```bash
 conda create telebotter python=3.8 pip
@@ -26,6 +29,10 @@ source /path/to/envs/telebotter/bin/activate  # bash/zsh (linux)
 ```
 
 ### Abhaengigkeiten installieren
+> Unter Windows hatte ich fehler beim installieren mit pip, da scheinbar cython nicht korrekt installiert wurde. Installiert man das vorweg, sollte es aber funktionieren
+```
+conda install cython
+```
 
 Aus dem Projektordner koennen dann alle benoetigten Bibliotheken installiert werden:
 ```bash
