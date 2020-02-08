@@ -7,7 +7,7 @@ cryptography==2.7
 Django==2.2.6
 django-appconf==1.0.3
 django-imagekit==4.0.2
--e git+git://github.com/telebotter/django-telegrambot/tree/dev#egg=django-telegrambot
+-e git+git://github.com/telebotter/django-telegrambot.git@dev#egg=django-telegrambot
 python-telegram-handler==2.2
 emoji==0.5.4
 future==0.17.1
