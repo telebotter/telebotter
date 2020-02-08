@@ -23,7 +23,7 @@ Django models, werden direkt in der Telebotterdatenbank gespeichert.
 Bots koennen auf der Website gelisted werden und/oder eine eigene Weboberflaeche mitbringen.
 
 ## Lokale Installation
-[Installationsanleitung](https://github.com/telebotter/telebotter/blob/master/install.md)
+[Installationsanleitung](https://github.com/telebotter/telebotter/blob/master/INSTALL.md)
 
 ## Neuen Bot erstellen
 
