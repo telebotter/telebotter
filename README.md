@@ -66,7 +66,12 @@ git push -u origin master
 ```
 
 ## Logging
-Das Logging ist teilweise unterschiedlich geloest und laeuft mit aktuellen Einstellungen und vielen Bots nicht besonders gut. Da muss man sich nochmal ein ganzheitliches Konzept ueberlegen und umsetzen #1.
+Das Logging wird in der `telebotter/setup.py` configuriert. Auf dem Server wird allen installierten Bots automatisch eine logfile (level INFO -> `botname.log`) zugewiesen. Hoehere level (WARNING) gehen zusaetzlich in den Telegramchat und ERRORs werden mit Traceback in einer gemeinsamen `error.log` Datei gesammelt. Debug Nachrichten werden nicht ausgegeben koennen im Bedarfsfall an die Konsole (im pollmode) oder in eine `debug.log` geschrieben werden.
+
+Alle Logfiles werden taeglich (0uhr) archiviert und 7 Tage aufbewahrt. In den Dateien befinden sich also nur tagesaktuelle Nachrichten. Die Archive liegen im selben Verzeichnis mit entspraechend angepasster Dateiendung.
+
+Sollte der Fehler schon vor der Konfiguration der logger auftreten, oder das gesamte Projekt crashen, findet sich vermutlich eine Fehlermeldung vom webserver in der `error_log` im selben Verzeichnis.
+
 ## Maintain
 
 ### Servererror 500
