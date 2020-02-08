@@ -11,7 +11,8 @@ git clone git@github.com:telebotter/telebotter.git
 ### Mit Conda
 > Unter Windows geht das auch mit der GUI (Anaconda Navigator) siehe screenshots. Oeffnet man darueber die Konsole, ist diese direkt gesourced und git sollte auch verfuegbar sein. Siehe Screenshot:
 
-!(docs/02_open_term.png)[docs/02_open_term.png]
+
+![https://github.com/telebotter/telebotter/docs/02_open_term.png](02_open_term)
 
 ```bash
 conda create telebotter python=3.8 pip
