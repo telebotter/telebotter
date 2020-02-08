@@ -23,8 +23,7 @@ Django models, werden direkt in der Telebotterdatenbank gespeichert.
 Bots koennen auf der Website gelisted werden und/oder eine eigene Weboberflaeche mitbringen.
 
 ## Lokale Installation
-Siehe [Installation am Beispiel Projekt47](https://github.com/telebotter/projekt47)
-TODO: Hierher kopieren und unabhaengig vom bot machen. django plugin ist upgedated, aber wenn PR nicht angenommen wird, in `requirements.txt` auf `git+https://github.com/telebotter/django-telegrambot/tree/dev` aendern.
+[Installationsanleitung](https://github.com/telebotter/telebotter/install.md)
 
 ## Neuen Bot erstellen
 
