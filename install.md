@@ -92,10 +92,9 @@ python manage.py runserver
 Und den [Link](localhost:8080) Browser (auf dem selben Geraet) oeffnen.
 
 
-## Bot starten
-Die oberen Schritte waren einmalig, vom Projektordner aus kann der bot von jetzt an immer mit `python manage.py devbot` gestartet werden und er läuft bis er crashed (oder strg+c). Damit die richtige python umgebung genutzt wird, muss diese (falls nicht als default gesetzt) aktiviert sein. Zur sicherheit:
+## Bot(s) starten
+Die oberen Schritte waren einmalig, vom Projektordner aus kann der bot von jetzt an immer ueber die `manage.py` gestartet werden und er läuft bis er crashed (oder strg+c). Die management Befehle funktionieren wie scripte, die aufgerufen werden, nachdem die django settings gelesen und initialisiert werden, das heisst in diesen scripten stehen DB Models, settings und logger bereits zur Verfuegung.
 
 ```
-conda activate telebotter
-python manage.py devbot
+python manage.py botpolling --username=<username_bot>
 ```
