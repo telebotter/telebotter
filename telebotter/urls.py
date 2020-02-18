@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('botlist/', views.botlist),
+    path('projekt47/', include('projekt47.urls')),
     url(r'^', include('django_telegrambot.urls')),
     #url(r'^parser/', include('mensaparser.urls')),
     #path('kicken/', include('kicken.urls')),

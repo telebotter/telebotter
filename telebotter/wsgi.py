@@ -13,12 +13,14 @@ import logging
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "telebotter.settings")
-logger = logging.getLogger(__name__)  # not available yet?
-logger.error('wsgi gestartet')
+#logger = logging.getLogger(__name__)  # not available yet or no django submod?
+logger = logging.getLogger('error')
+logger.warning('wsgi gestartet')
 
-#try:
-#    logger.error('creating application')
-application = get_wsgi_application()
-#    logger.error('application created')
-#except Exception as e:
-#    logger.exception(e)
+try:
+    logger.debug('creating application')
+    application = get_wsgi_application()
+    logger.debug('application created')
+except Exception as e:
+    logger.exception(e)
+    raise e
