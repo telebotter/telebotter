@@ -13,3 +13,4 @@ wetter
 static
 media
 core/__pycache__
+core/migrations
