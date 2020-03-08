@@ -1,8 +1,54 @@
 import os
 import logging
 import logging.handlers
+from telegram import ChatAction
+from django.conf import settings
+from functools import wraps
 
 
+def send_action(action):
+    """Sends `action` while processing func command.
+    https://github.com/python-telegram-bot/python-telegram-bot/
+    wiki/Code-snippets#send-action-while-handling-command-decorator
+    Usage:
+    ```
+    @send_action(ChatAction.TYPING)
+    def type_and_answer(update, context):
+        ...
+    ```
+    or shortcuts:
+    ```
+    @typing_action
+    def type_and_answer(update, context):
+        ...
+    ```
+    """
+    def decorator(func):
+        @wraps(func)
+        def command_func(update, context, *args, **kwargs):
+            context.bot.send_chat_action(chat_id=update.effective_message.chat_id, action=action)
+            return func(update, context,  *args, **kwargs)
+        return command_func
+    return decorator
+
+# shortcuts for send_action without using any argument:
+typing_action = send_action(ChatAction.TYPING)
+upload_video_action = send_action(ChatAction.UPLOAD_VIDEO)
+upload_photo_action = send_action(ChatAction.UPLOAD_PHOTO)
+
+
+def restricted(func):
+    """ decorator for handler function, that only allows admins (user ids in
+    settings.ADMIN_LIST) to use this command.
+    """
+    @wraps(func)
+    def wrapped(update, context, *args, **kwargs):
+        user_id = update.effective_user.id
+        if user_id not in settings.ADMIN_LIST:
+            print("Unauthorized access denied for {}.".format(user_id))
+            return
+        return func(update, context, *args, **kwargs)
+    return wrapped
 
 
 class GWTimedRotatingFileHandler(logging.handlers.TimedRotatingFileHandler):
