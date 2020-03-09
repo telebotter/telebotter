@@ -1,7 +1,10 @@
+**/__pycache__
+local
 telebotter/settings.py
 mensaparser
 strichcodebot
 dokumentenbot
+tour
 projekt47
 chamaeleon
 kicken
@@ -15,5 +18,4 @@ listerer
 wetter
 static
 media
-core/__pycache__
 core/migrations
