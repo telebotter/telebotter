@@ -21,9 +21,30 @@ class Bot(models.Model):
                                       processors=[ResizeToFill(140, 140)],
                                       format='png')
     url = models.URLField(null=True, blank=True)
+    repo = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return str(self.name)
+
+    def card_context(self):
+        ctx = {
+            'title': self.name,
+            'text': self.short,
+            'urls': [{'href': self.url, 'link': 'Website'}],
+            'subtitle': self.username,
+            'username': self.username,
+            'url': self.url,
+        }
+        if self.avatar:
+            ctx['image'] = self.avatar.url
+        elif self.url:
+            url_parts = self.url.split('/')
+            url_parts = url_parts[:-1]+['static']+[url_parts[-1]]+['avatar.png']
+            ctx['image'] = '/'.join(url_parts)
+        if self.repo:
+            ctx['repo'] = self.repo
+        return ctx
+
 
 class TelebotUser(models.Model):
     user_id = models.BigIntegerField(primary_key=True, unique=True)

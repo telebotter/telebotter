@@ -4,6 +4,7 @@ import logging.handlers
 from telegram import ChatAction
 from django.conf import settings
 from functools import wraps
+logger = logging.getLogger(__name__)
 
 
 def send_action(action):
@@ -45,7 +46,7 @@ def restricted(func):
     def wrapped(update, context, *args, **kwargs):
         user_id = update.effective_user.id
         if user_id not in settings.ADMIN_LIST:
-            print("Unauthorized access denied for {}.".format(user_id))
+            logger.warning("Unauthorized access denied for {}.".format(user_id))
             return
         return func(update, context, *args, **kwargs)
     return wrapped

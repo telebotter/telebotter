@@ -1,0 +1,17 @@
+<li class="media">
+  <img class="mr-3 rounded-circle" width=140px height=140px src="{% if image %}{{ image }}{% else %}https://avatars2.githubusercontent.com/u/34460207?s=400&u=e5bfd0c3c9f51fce0ea1e91df17edbd665127371&v=4{% endif %}" alt="">
+  <div class="media-body">
+    <h4 class="mt-0 mb-1">{{ title }}</h4>
+    {% if subtitle %}
+      <h5 class="mt-0 mb-1 muted">{{ subtitle }}</h5>
+    {% endif %}
+    <p>{{ text }}</p>
+    <a href="https://t.me/{{ username }}" role="button" class="btn btn-outline-primary"><i class="fa fa-telegram"></i> Kontakt</a>
+    {% if url %}
+      <a href="{{ url }}" role="button" class="btn btn-outline-success"><i class="fa fa-window-maximize"></i> Webseite</a>
+    {% endif %}
+    {% if repo %}
+      <a href="https://github.com/telebotter/{{ repo }}" role="button" class="btn btn-outline-secondary"><i class="fa fa-github"></i> Quellcode</a>
+    {% endif %}
+  </div>
+</li>

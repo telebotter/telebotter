@@ -1,11 +1,12 @@
 {% extends 'core/base.html' %}
+{% load telebottertags %}
 
 {% block content %}
 <div class="container">
-  {% for bot in bots %}
-    <div class="card">
-      {{ bot.name }}
-    </div>
-  {% endfor %}
+  <ul class="list-unstyled">
+    {% for bot in bots %}
+      {% as_media bot.card_context %}
+    {% endfor %}
+  </ul>
 </div>
 {% endblock content %}
