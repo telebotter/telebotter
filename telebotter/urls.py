@@ -26,6 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('botlist/', views.botlist),
     path('projekt47/', include('projekt47.urls')),
+    path('tglogin/', views.tglogin),
+    path('tglogin/verify', views.tglogin_verify),
     url(r'^', include('django_telegrambot.urls')),
     #url(r'^parser/', include('mensaparser.urls')),
     #path('kicken/', include('kicken.urls')),
