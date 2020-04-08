@@ -6,6 +6,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+# from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserManager
 
 
 class Bot(models.Model):
@@ -46,7 +47,9 @@ class Bot(models.Model):
         return ctx
 
 
+
 class TelebotUser(models.Model):
+    django_user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True)
     user_id = models.BigIntegerField(primary_key=True, unique=True)
     first_name = models.CharField(max_length=60, null=True, blank=True)
     last_name = models.CharField(max_length=60, null=True, blank=True)

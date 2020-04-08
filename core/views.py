@@ -3,6 +3,7 @@ from core.models import Bot
 import random
 from django.conf import settings
 from django.http import HttpResponse
+from core.models import TelebotUser
 
 
 from django_telegram_login.authentication import verify_telegram_authentication
@@ -60,4 +61,7 @@ def tglogin_verify(request):
         return HttpResponse('The data is not related to the Telegram user!')
 
     # Or handle it as you wish. For instance, save to the database.
+    print(result)
+    tuser, new = TelebotUser.objcets.get_or_create(pk=result['id'], defaults=result)
+    print(new)
     return HttpResponse('Hello, ' + result['first_name'] + '!')
