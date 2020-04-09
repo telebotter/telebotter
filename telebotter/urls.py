@@ -19,6 +19,7 @@ from django.contrib import admin
 from core import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -26,8 +27,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('botlist/', views.botlist),
     path('projekt47/', include('projekt47.urls')),
-    path('tglogin/', views.tglogin),
-    path('tglogin/verify', views.tglogin_verify),
+    path('logout/', auth_views.LogoutView.as_view(template_name='core/login.html'), name='logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='core/login.html'), name='login'),
+    # path('login/', views.tglogin, name='login'),
+    path('login/verify', views.tglogin_verify),
     url(r'^', include('django_telegrambot.urls')),
     #url(r'^parser/', include('mensaparser.urls')),
     #path('kicken/', include('kicken.urls')),

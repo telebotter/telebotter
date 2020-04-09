@@ -1,0 +1,71 @@
+{% extends 'core/base.html' %}
+{% load telebottertags %}
+
+
+
+<!-- only for callback login method:
+<script type="text/javascript">
+    function onTelegramAuth(user) {
+        alert('Logged in as ' + user.first_name + ' ' + user.last_name + '!');
+    }
+</script> -->
+
+
+
+
+{% block content %}
+<div class="container">
+
+    {% if form.errors %}
+      <p>Fehler bei der Anmeldung. Username oder Passwort falsch?</p>
+    {% endif %}
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="card col-sm-12 col-md-6">
+      <article class="card-body">
+      	<!--<h4 class="card-title text-center mb-4 mt-1">Login</h4>-->
+
+        <!-- {{ telegram_login_widget|safe }} -->
+        {# {% autoescape off %}{{ telegram_login_widget }}{% endautoescape %} #}
+        <p>Verifizierung durch Telegram:</p>
+        <div class="text-center">
+          {% tg_login_widget %}
+        </div>
+      	<hr>
+        <p>Oder mit Passwort:</p>
+        {% if user.is_authenticated %}
+          <div class="text-center mb-4 mt-1"
+            <p>Du bist angemeldet als: {{ user.username }}</p>
+            <a href="/logout/" class="btn btn-outline-danger">Logout</a>
+          </div>
+        {% else %}
+        	<!-- <p class="text-success text-center">Some message goes here</p> -->
+        	<form method="post" action="{% url 'login' %}">
+          {% csrf_token %}
+        	<div class="form-group">
+        	<div class="input-group">
+        		<div class="input-group-prepend">
+        		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        		 </div>
+        		<input class="form-control" placeholder="Login" type="text" name="username" autofocus="" required="" id="id_username">
+        	</div> <!-- input-group.// -->
+        	</div> <!-- form-group// -->
+        	<div class="form-group">
+        	<div class="input-group">
+        		<div class="input-group-prepend">
+        		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        		 </div>
+        	    <input class="form-control" placeholder="******" type="password" id="id_password" name="password">
+        	</div> <!-- input-group.// -->
+        	</div> <!-- form-group// -->
+          <input type="hidden" name="next" value="{{ next }}" />
+        	<div class="form-group text-center">
+        	<button type="submit" class="btn btn-outline-success"> Login  </button>
+        	</div> <!-- form-group// -->
+        	</form>
+        {% endif %}
+      </article>
+      </div> <!-- card.// -->
+    </div> <!-- row.// -->
+  </div>
+  {% endblock %}

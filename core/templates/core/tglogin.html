@@ -1,10 +1,16 @@
-It is a template to render a callback Telegram widget!
+{% extends 'core/base.html' %}
+{% load telebottertags %}
 
+{% block content %}
+<div class="container">
 <!-- {{ telegram_login_widget|safe }} -->
 {% autoescape off %}{{ telegram_login_widget }}{% endautoescape %}
 
+<!-- only for callback login method:
 <script type="text/javascript">
     function onTelegramAuth(user) {
         alert('Logged in as ' + user.first_name + ' ' + user.last_name + '!');
     }
-</script>
+</script> -->
+</div>
+{% endblock content %}

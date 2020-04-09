@@ -1,3 +1,5 @@
+{% load bootstrap4 %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -50,22 +52,36 @@
           <a class="nav-link disabled" href="#">Kontakt</a>
         </li>
       </ul>
+      <!-- no search implemented
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
       </form>
+      -->
+      {% if user.is_authenticated %}
+        <i class="fa fa-user"></i> <span style="padding-left: 5px; padding-right: 5px;">  {{ user.username }}</span>
+        <a class="btn btn-outline-danger" type="button" href="/logout?next={{ request.path }}">Logout</a>
+      {% else %}
+        <a class="btn btn-outline-success" type="button" href="/login?next={{ request.path }}">Login</a>
+      {% endif %}
     </div>
   </div>
   </nav>
 </header>
 
+
+
 <main role="main">
-  <div class="spacer" style="margin-top:100px;"></div>
+  <div class="spacer" style="margin-top:56px;"></div>
+  <div class="container" id="message_box">
+      {% bootstrap_messages %}
+  </div>
 {% block content %}
 {% endblock content %}
 
   <!-- FOOTER -->
-  <footer class="container">
+  <footer class="container" style="padding-top: 50px;">
+  <hr/>
     <p class="float-right"><a href="#">Nach Oben</a></p>
     <p>&copy; 2019 Lukas Ruhe&middot; <a href="#">Impressum</a></p>
   </footer>
