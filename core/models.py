@@ -32,8 +32,9 @@ class Bot(models.Model):
             'title': self.name,
             'text': self.short,
             'urls': [{'href': self.url, 'link': 'Website'}],
-            'subtitle': self.username,
+            'subtitle': f'@{self.username}',
             'username': self.username,
+            'repo': self.repo,
             'url': self.url,
         }
         if self.avatar:

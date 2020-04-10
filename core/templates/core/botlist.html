@@ -3,10 +3,12 @@
 
 {% block content %}
 <div class="container">
-  <ul class="list-unstyled">
+
+    <h1>Unsere Bots:</h1>
+    <div class="card-columns">
     {% for bot in bots %}
-      {% as_media bot.card_context %}
+      {% as_bot_card bot.card_context %}
     {% endfor %}
-  </ul>
+    </div>
 </div>
 {% endblock content %}

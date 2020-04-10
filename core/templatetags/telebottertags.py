@@ -11,6 +11,9 @@ def as_card(data):
     """
     return data
 
+@register.inclusion_tag('core/bot_card.html')
+def as_bot_card(data):
+    return data
 
 @register.inclusion_tag('core/media.html')
 def as_media(data):

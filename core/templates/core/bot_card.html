@@ -1,0 +1,84 @@
+<style>
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+.btn-bot-card {
+  margin: 0 auto;
+}
+</style>
+<div class="card {{ class }}">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <div class="media">
+          <img class="mr-3 rounded-circle" width=64px height=64px src="{% if image %}{{ image }}{% else %}https://avatars2.githubusercontent.com/u/34460207?s=400&u=e5bfd0c3c9f51fce0ea1e91df17edbd665127371&v=4{% endif %}" alt="">
+          <div class="media-body">
+            <h5 class="mt-0">{{ title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ subtitle }}</h6>
+          </div>
+        </div>
+    </li>
+    <li class="list-group-item">
+      <div class="row" style="display: flex; align-items: center;">
+        <div class="col-2">
+          <i class="fa fa-info-circle" style="color: grey;"></i>
+        </div>
+        <div class="col-10">
+          {{ text }}
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="row">
+        <a href="https://t.me/{{ username }}" role="button" class="btn btn-outline-primary btn-bot-card"><i class="fa fa-telegram"></i> Kontakt</a>
+        {% if url %}
+        <a href="{{ url }}" role="button" class="btn btn-outline-success btn-bot-card"><i class="fa fa-window-maximize"></i> Seite</a>
+        {% endif %}
+        {% if repo %}
+        <a href="https://github.com/telebotter/{{ repo }}" role="button" class="btn btn-outline-secondary btn-bot-card"><i class="fa fa-github"></i> Code</a>
+        {% endif %}
+      </div>
+    <!--</li>
+    <li class="list-group-item">-->
+    </li>
+  </ul>
+</div>
+
+<!--
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    {% if subtitle %}
+      <h6 class="card-subtitle mb-2 text-muted">{{ subtitle }}</h6>
+    {% endif %}
+    <p class="card-text">{{ text }}</p>
+    {% for u in urls %}
+      <a href="{{ u.href }}" class="card-link">{{ u.link }}</a>
+    {% endfor %}
+  </div>
+  {% if footer %}
+    <div class="card-footer">
+        <small class="text-muted">{{ footer }}</small>
+    </div>
+  {% endif %}
+</div>
+-->
