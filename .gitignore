@@ -20,3 +20,4 @@ static
 media
 core/migrations
 localdb
+secret.py
