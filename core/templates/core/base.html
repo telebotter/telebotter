@@ -39,7 +39,7 @@
     <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="/">Telebotter</a>
+    <a class="navbar-brand" href="/"><img height="28px" width="auto" src="/static/core/logo.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -61,8 +61,16 @@
       </form>
       -->
       {% if user.is_authenticated %}
-        <i class="fa fa-user"></i> <span style="padding-left: 5px; padding-right: 5px;">  {{ user.username }}</span>
-        <a class="btn btn-outline-danger" type="button" href="/logout?next={{ request.path }}">Logout</a>
+        <div class="dropdown">
+          <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user"></i> <span style="padding-left: 5px; padding-right: 5px;">  {{ user.username }}</span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Einstellungen</a>
+            <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Admin</a>
+            <a class="dropdown-item text-danger" href="/logout?next={{ request.path }}"><i class="fa fa-sign-out"></i> Logout</a>
+          </div>
+        </div>
       {% else %}
         <a class="btn btn-outline-success" type="button" href="/login?next={{ request.path }}">Login</a>
       {% endif %}

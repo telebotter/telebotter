@@ -21,3 +21,4 @@ media
 core/migrations
 localdb
 secret.py
+**/secrete.*
