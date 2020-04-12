@@ -31,6 +31,10 @@ def botlist(request):
     context['bots'] = Bot.objects.filter(public=True)
     return render(request, 'core/botlist.html', context)
 
+def botinfo(request, appname):
+    bot = Bot.objects.get(appname=appname)
+    messages.info(request, 'Diese Seite ist automatisch generiert worden. Es wurden noch keine Infoseiten eingetragen.')
+    return render(request, 'core/botinfo.html', {'bot': bot})
 
 def tglogin(request):
     telegram_login_widget = create_redirect_login_widget('/login/verify', 'telebotterbot', size='medium', access_write=True)

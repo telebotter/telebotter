@@ -39,14 +39,16 @@
         </div>
     </li>
     <li class="list-group-item">
-          <i class="fa fa-info-circle" style="color: grey;"></i>
+
           {{ text }}
     </li>
     <li class="list-group-item">
       <div class="row">
         <a href="https://t.me/{{ username }}" role="button" class="btn btn-outline-primary btn-bot-card"><i class="fa fa-telegram"></i> Kontakt</a>
         {% if url %}
-        <a href="{{ url }}" role="button" class="btn btn-outline-success btn-bot-card"><i class="fa fa-window-maximize"></i> Seite</a>
+        <a href="{{ url }}" role="button" class="btn btn-outline-success btn-bot-card"><i class="fa fa-info-circle"></i> Mehr</a>
+        {% elif appname %}
+        <a href="/{{ appname }}/" role="button" class="btn btn-outline-success btn-bot-card"><i class="fa fa-info-circle"></i> Mehr</a>
         {% endif %}
         {% if repo %}
         <a href="https://github.com/telebotter/{{ repo }}" role="button" class="btn btn-outline-secondary btn-bot-card"><i class="fa fa-github"></i> Code</a>

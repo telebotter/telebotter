@@ -1,6 +1,6 @@
 {% load bootstrap4 %}
+{% load telebottertags %}
 
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -45,14 +45,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/botlist">Bots <span class="sr-only">(current)</span></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% block botdropdowntitle %}Bots{% endblock %}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownBots">
+            <a class="dropdown-item" href="/botlist/">Alle Bots</a>
+             <div class="dropdown-divider"></div>
+            {% get_bot_list as bot_list %}
+            {% for b in bot_list %}
+              <a class="dropdown-item" href="/{{ b.appname }}/">{{ b.name }}</a>
+            {% endfor %}
+          </div>
         </li>
-        {% block submenu %}
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Kontakt</a>
-        </li>
-        {% endblock submenu %}
+        {% block appmenu %}
+        {% endblock appmenu %}
       </ul>
       <!-- no search implemented
       <form class="form-inline mt-2 mt-md-0">
@@ -85,14 +92,17 @@
   <div class="container" id="message_box">
       {% bootstrap_messages %}
   </div>
-{% block content %}
-{% endblock content %}
+
+  {% block padtop %}<div style="padding-top:50px;"></div>{% endblock %}
+
+  {% block content %}
+  {% endblock content %}
 
   <!-- FOOTER -->
   <footer class="container" style="padding-top: 50px;">
   <hr/>
     <p class="float-right"><a href="#">Nach Oben</a></p>
-    <p>&copy; 2019 Lukas Ruhe&middot; <a href="#">Impressum</a></p>
+    <p>&copy; 2020 Lukas Ruhe&middot; <a href="#">Impressum</a></p>
   </footer>
 </main>
 <!--

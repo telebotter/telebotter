@@ -12,6 +12,7 @@ from imagekit.processors import ResizeToFill
 class Bot(models.Model):
     name = models.CharField(max_length=60, null=True, blank=True)
     username = models.CharField(max_length=60, null=True, blank=True)
+    appname = models.CharField(default="", max_length=54, null=True, blank=True)
     token = models.CharField(max_length=128, null=True, blank=True)
     short = models.TextField(null=True, blank=True)
     long = models.TextField(null=True, blank=True)
@@ -36,6 +37,7 @@ class Bot(models.Model):
             'username': self.username,
             'repo': self.repo,
             'url': self.url,
+            'appname': self.appname,
         }
         if self.avatar:
             ctx['image'] = self.avatar.url
