@@ -7,6 +7,19 @@ from functools import wraps
 logger = logging.getLogger(__name__)
 
 
+def dict_format(pattern, data):
+    """The String.format(dict) method is used a lot to fill the answers.
+    TODO: maybe use something like djangos rendering for this?
+    this function can be imported as shortcut"""
+    return pattern.format(data)
+
+
+def quick_reply(update, text, **kwargs):
+    kwargs['quote'] = kwargs.get('quote', False)
+    kwargs['parse_mode'] = kwargs.get('parse_mode', 'HTML')
+    update.effective_message.reply_text(text, **kwargs)
+
+
 def send_action(action):
     """Sends `action` while processing func command.
     https://github.com/python-telegram-bot/python-telegram-bot/
@@ -27,7 +40,9 @@ def send_action(action):
     def decorator(func):
         @wraps(func)
         def command_func(update, context, *args, **kwargs):
-            context.bot.send_chat_action(chat_id=update.effective_message.chat_id, action=action)
+            context.bot.send_chat_action(
+                chat_id=update.effective_message.chat_id,
+                action=action)
             return func(update, context,  *args, **kwargs)
         return command_func
     return decorator
