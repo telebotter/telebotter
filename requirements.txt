@@ -4,7 +4,7 @@ cffi==1.12.3
 chardet==3.0.4
 cowsay==2.0.3
 cryptography==2.7
-Django==2.2.13
+Django==2.2.22
 django-appconf==1.0.3
 django-imagekit==4.0.2
 -e git+git://github.com/telebotter/django-telegrambot.git#egg=django-telegrambot
